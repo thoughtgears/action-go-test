@@ -8,10 +8,10 @@ clean:
 	rm -rf bin
 
 bundle: clean
-	@echo "Creating bundle for version $(VERSION) on commit $(GIT_COMMIT)"
-	CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -a -installsuffix cgo -ldflags="-s -w -X main.Version=$(GIT_SHA)" -o bin/main-linux-amd64-v1
-	CGO_ENABLED=0 GOOS=linux GOARCH=arm64 go build -a -installsuffix cgo -ldflags="-s -w -X main.Version=$(GIT_SHA)" -o bin/main-linux-arm64-v1
-	CGO_ENABLED=0 GOOS=darwin GOARCH=arm64 go build -a -installsuffix cgo -ldflags="-s -w -X main.Version=$(GIT_SHA)" -o bin/main-darwin-arm64-v1
+	@echo "Creating bundle for version $(GIT_SHA) on commit $(GIT_COMMIT)"
+	CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -a -installsuffix cgo -ldflags="-s -w -X main.Version=$(GIT_COMMIT)" -o bin/main-linux-amd64-$(GIT_SHA)
+	CGO_ENABLED=0 GOOS=linux GOARCH=arm64 go build -a -installsuffix cgo -ldflags="-s -w -X main.Version=$(GIT_COMMIT)" -o bin/main-linux-arm64-$(GIT_SHA)
+	CGO_ENABLED=0 GOOS=darwin GOARCH=arm64 go build -a -installsuffix cgo -ldflags="-s -w -X main.Version=$(GIT_COMMIT)" -o bin/main-darwin-arm64-$(GIT_SHA)
 	echo $(GIT_SHA) > .version
 
 	@git add bin/*
