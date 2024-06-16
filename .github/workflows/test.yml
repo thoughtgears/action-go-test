@@ -1,0 +1,31 @@
+name: PR Check
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths-ignore:
+      - 'Makefile'
+      - '.gitignore'
+      - 'LICENSE'
+      - 'README.md'
+
+jobs:
+  run-action:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        id: checkout
+        uses: actions/checkout@v4
+
+      - name: Test Local Action
+        id: test-action
+        uses: ./
+        with:
+          gcp_project_id: my-project-1234
+          environment: dev
+
+      - name: Print Output
+        id: output
+        run: echo "${{ steps.test-action.outputs.gcp_project_id }}"

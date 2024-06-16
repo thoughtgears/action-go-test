@@ -25,9 +25,5 @@ test:
 action:
 	@echo "Running action"
 	@echo "Commit: $(GIT_COMMIT)"
-
-
-	INPUT_GCP_PROJECT_ID=project-1234 \
-    INPUT_ENVIRONMENT=production \
-    go run main.go
+	act -W .github/workflows/test.yml
 
