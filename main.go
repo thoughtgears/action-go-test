@@ -1,1 +1,7 @@
-package iac_generator
+package main
+
+import "fmt"
+
+func main() {
+	fmt.Println("Hello, World!")
+}
