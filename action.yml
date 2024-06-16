@@ -1,17 +1,17 @@
-name: 'IAC generator action'
-description: 'Generates IAC opinionated terraform code for your project'
+name: 'Go test action'
+description: 'An action to wrap go binaries in a Javascript SHIM to run it as native action'
 author: 'Thoughtgears'
 
 inputs:
   gcp_project_id:
     description: 'The GCP project ID for your current project'
-  service_name:
-    description: 'The name of the service you want to deploy'
+  environment:
+    description: 'the environment you are deploying to'
     required: true
 
 outputs:
-  time:
-    description: 'Your output description here'
+  gcp_project_id:
+    description: 'The GCP project ID for your current project'
 
 runs:
   using: node20

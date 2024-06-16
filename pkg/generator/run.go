@@ -7,7 +7,11 @@ import (
 )
 
 func Run(ctx context.Context, cfg *Config) error {
-	githubactions.SetOutput("project_id", cfg.ProjectID)
-	githubactions.SetOutput("service_name", cfg.ServiceName)
+	if cfg.Environment == "prod" {
+		// Do something here
+	}
+
+	githubactions.SetOutput("gcp_project_id", cfg.ProjectID)
+
 	return nil
 }

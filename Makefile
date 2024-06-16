@@ -20,3 +20,14 @@ bundle: clean
 
 test:
 	@echo "Testing commit: $(GIT_COMMIT)"
+	go test -v ./...
+
+action:
+	@echo "Running action"
+	@echo "Commit: $(GIT_COMMIT)"
+
+
+	INPUT_GCP_PROJECT_ID=project-1234 \
+    INPUT_ENVIRONMENT=production \
+    go run main.go
+

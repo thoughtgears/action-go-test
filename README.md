@@ -1,9 +1,6 @@
-# IaC Code Pipeline Generator
+# Go Action Test
 
-A go application to generate opinionated terraform code for a deployment pipeline that is inspired by 
-[this blog post](https://full-stack.blend.com/how-we-write-github-actions-in-go.html) to create Go based GitHub Actions 
-and support the demo for generating infrastructure as code and deploy a cloud run API for service.
+An initial test to understand how to run go binaries as actions wrapping them with a JavaScript SHIM to allow for 
+native execution of the action with inspiration from 
+[this blog post](https://full-stack.blend.com/how-we-write-github-actions-in-go.html).
 
-**Note**: This is a demo and not intended for production use, but to be used to show how to generate terraform code for 
-cloud run deployment, and how to generate the infrastructure for 
-[https://github.com/thoughtgears/demo-item-api](https://github.com/thoughtgears/demo-item-api)
